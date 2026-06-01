@@ -1,0 +1,19 @@
+{
+    "name": "baegames.LOP.MasterData.Client.Tests.PlayMode",
+    "rootNamespace": "LOP.MasterData.Tests",
+    "references": [
+        "baegames.LOP.MasterData.Client.Runtime",
+        "baegames.LOP.MasterData.Client.Generated",
+        "baegames.GameFramework.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false,
+    "optionalUnityReferences": ["TestAssemblies"]
+}

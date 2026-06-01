@@ -1,0 +1,17 @@
+{
+    "name": "baegames.LOP.MasterData.Client.Editor",
+    "rootNamespace": "LOP.MasterData.Editor",
+    "references": [
+        "baegames.LOP.MasterData.Client.Runtime",
+        "baegames.LOP.MasterData.Client.Generated"
+    ],
+    "includePlatforms": ["Editor"],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

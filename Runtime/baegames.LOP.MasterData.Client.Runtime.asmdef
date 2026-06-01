@@ -1,0 +1,14 @@
+{
+    "name": "baegames.LOP.MasterData.Client.Runtime",
+    "rootNamespace": "LOP.MasterData",
+    "references": ["baegames.GameFramework.Runtime"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
