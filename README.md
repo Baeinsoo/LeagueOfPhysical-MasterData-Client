@@ -1,19 +1,19 @@
 # LeagueOfPhysical-MasterData-Client (com.baegames.lop.masterdata.client)
 
-League of Physical 클라 전용 MasterData (Protobuf 스키마 + 데이터).
+League of Physical 클라 전용 MasterData (Luban 생성 스키마 + 데이터).
 
 ## 책임
 
-- proto 산출물 (Character/Skin/Action/Item/SkinAsset `.cs`) — Slice 2b부터 채워짐
-- 데이터 (`.bin` in StreamingAssets) — Slice 2b부터 채워짐
+- Luban 생성 MasterData (Character/Skin/SkinAsset/Action/Item `.cs`)
+- 데이터 (`.bytes` in StreamingAssets)
 
 ## Use-side Requirements
 
-- `com.baegames.gameframework` (package.json dependencies)
-- `org.nuget.google.protobuf` (UnityNuGet)
+- `com.code-philosophy.luban` (UPM git `https://github.com/focus-creative-games/luban_unity.git#v1.2.0`)
+- `com.cysharp.unitask`
 
 상세 토폴로지: 사용 측 저장소의 `docs/lop-repo-topology.md` 참조.
 
 ## Editing
 
-이 패키지는 *exporter 산출물*이라 직접 편집 금지. 변경하려면 `infrastructure/table/`에서 Excel/.proto 수정 + exporter 재실행 (Slice 2b부터).
+이 패키지는 *exporter 산출물*이라 직접 편집 금지. 변경하려면 `infrastructure/table/Datas` 수정 + `gen.sh` 재실행.
