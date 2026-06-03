@@ -37,7 +37,15 @@ namespace LOP.MasterData
         private static async Task<byte[]> LoadBytes(string relativePath)
         {
             string uri;
-#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_EDITOR
+            // In the editor, a package's StreamingAssets are NOT merged into
+            // Application.streamingAssetsPath (that points at the project's Assets/StreamingAssets).
+            // Resolve this package's own StreamingAssets via the virtual Packages/ path.
+            // (In a player build, Unity copies package StreamingAssets into the build's
+            //  StreamingAssets, so the streamingAssetsPath branches below are correct there.)
+            uri = "file://" + Path.GetFullPath(
+                $"Packages/com.baegames.lop.masterdata.client/Runtime.Generated/StreamingAssets/{relativePath}");
+#elif UNITY_ANDROID
             uri = Path.Combine(Application.streamingAssetsPath, relativePath);
 #else
             uri = "file://" + Path.Combine(Application.streamingAssetsPath, relativePath);
