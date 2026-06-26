@@ -33,6 +33,10 @@ public partial class Tables
     /// Item
     /// </summary>
     public TbItem TbItem {get; }
+    /// <summary>
+    /// StatusEffect
+    /// </summary>
+    public TbStatusEffect TbStatusEffect {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -41,6 +45,7 @@ public partial class Tables
         TbSkinAsset = new TbSkinAsset(loader("tbskinasset"));
         TbAction = new TbAction(loader("tbaction"));
         TbItem = new TbItem(loader("tbitem"));
+        TbStatusEffect = new TbStatusEffect(loader("tbstatuseffect"));
         ResolveRef();
     }
     
@@ -51,6 +56,7 @@ public partial class Tables
         TbSkinAsset.ResolveRef(this);
         TbAction.ResolveRef(this);
         TbItem.ResolveRef(this);
+        TbStatusEffect.ResolveRef(this);
     }
 }
 
