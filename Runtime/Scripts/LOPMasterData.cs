@@ -19,7 +19,7 @@ namespace LOP.MasterData
         // loader keys == generated Tables.cs loader("...") keys == .bytes file stems
         private static readonly string[] TableFiles =
         {
-            "tbcharacter", "tbskin", "tbskinasset", "tbaction", "tbitem", "tbstatuseffect"
+            "tbcharacter", "tbskin", "tbskinasset", "tbaction", "tbitem", "tbstatuseffect", "tbability"
         };
 
         public Tables Tables { get; private set; }
