@@ -27,6 +27,10 @@ public sealed partial class Ability : Luban.BeanBase
         RecoveryTicks = _buf.ReadLong();
         Cue = _buf.ReadString();
         {int n0 = _buf.ReadSize(); Effects = new System.Collections.Generic.List<AbilityEffect>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { AbilityEffect _e0;  _e0 = global::LOP.MasterData.AbilityEffect.DeserializeAbilityEffect(_buf); Effects.Add(_e0);}}
+        StartupMoveScale = _buf.ReadFloat();
+        ActiveMoveScale = _buf.ReadFloat();
+        RecoveryMoveScale = _buf.ReadFloat();
+        BlockJump = _buf.ReadBool();
     }
 
     public static Ability DeserializeAbility(ByteBuf _buf)
@@ -78,6 +82,22 @@ public sealed partial class Ability : Luban.BeanBase
     /// effects
     /// </summary>
     public readonly System.Collections.Generic.List<AbilityEffect> Effects;
+    /// <summary>
+    /// startup_move_scale
+    /// </summary>
+    public readonly float StartupMoveScale;
+    /// <summary>
+    /// active_move_scale
+    /// </summary>
+    public readonly float ActiveMoveScale;
+    /// <summary>
+    /// recovery_move_scale
+    /// </summary>
+    public readonly float RecoveryMoveScale;
+    /// <summary>
+    /// block_jump
+    /// </summary>
+    public readonly bool BlockJump;
    
     public const int __ID__ = 464145674;
     public override int GetTypeId() => __ID__;
@@ -101,6 +121,10 @@ public sealed partial class Ability : Luban.BeanBase
         + "recoveryTicks:" + RecoveryTicks + ","
         + "cue:" + Cue + ","
         + "effects:" + Luban.StringUtil.CollectionToString(Effects) + ","
+        + "startupMoveScale:" + StartupMoveScale + ","
+        + "activeMoveScale:" + ActiveMoveScale + ","
+        + "recoveryMoveScale:" + RecoveryMoveScale + ","
+        + "blockJump:" + BlockJump + ","
         + "}";
     }
 }
