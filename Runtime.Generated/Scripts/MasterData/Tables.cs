@@ -41,6 +41,10 @@ public partial class Tables
     /// CharacterLoadout
     /// </summary>
     public TbCharacterLoadout TbCharacterLoadout {get; }
+    /// <summary>
+    /// AbilityView
+    /// </summary>
+    public TbAbilityView TbAbilityView {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -51,6 +55,7 @@ public partial class Tables
         TbStatusEffect = new TbStatusEffect(loader("tbstatuseffect"));
         TbAbility = new TbAbility(loader("tbability"));
         TbCharacterLoadout = new TbCharacterLoadout(loader("tbcharacterloadout"));
+        TbAbilityView = new TbAbilityView(loader("tbabilityview"));
         ResolveRef();
     }
     
@@ -63,6 +68,7 @@ public partial class Tables
         TbStatusEffect.ResolveRef(this);
         TbAbility.ResolveRef(this);
         TbCharacterLoadout.ResolveRef(this);
+        TbAbilityView.ResolveRef(this);
     }
 }
 
