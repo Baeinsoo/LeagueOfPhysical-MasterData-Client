@@ -25,7 +25,6 @@ public sealed partial class Ability : Luban.BeanBase
         StartupTicks = _buf.ReadLong();
         ActiveTicks = _buf.ReadLong();
         RecoveryTicks = _buf.ReadLong();
-        Cue = _buf.ReadString();
         {int n0 = _buf.ReadSize(); Effects = new System.Collections.Generic.List<AbilityEffect>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { AbilityEffect _e0;  _e0 = global::LOP.MasterData.AbilityEffect.DeserializeAbilityEffect(_buf); Effects.Add(_e0);}}
         StartupMoveScale = _buf.ReadFloat();
         ActiveMoveScale = _buf.ReadFloat();
@@ -75,10 +74,6 @@ public sealed partial class Ability : Luban.BeanBase
     /// </summary>
     public readonly long RecoveryTicks;
     /// <summary>
-    /// cue
-    /// </summary>
-    public readonly string Cue;
-    /// <summary>
     /// effects
     /// </summary>
     public readonly System.Collections.Generic.List<AbilityEffect> Effects;
@@ -119,7 +114,6 @@ public sealed partial class Ability : Luban.BeanBase
         + "startupTicks:" + StartupTicks + ","
         + "activeTicks:" + ActiveTicks + ","
         + "recoveryTicks:" + RecoveryTicks + ","
-        + "cue:" + Cue + ","
         + "effects:" + Luban.StringUtil.CollectionToString(Effects) + ","
         + "startupMoveScale:" + StartupMoveScale + ","
         + "activeMoveScale:" + ActiveMoveScale + ","
