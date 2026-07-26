@@ -16,8 +16,12 @@ namespace LOP.MasterData
     /// </summary>
     public class LOPMasterData
     {
-        // loader keys == generated Tables.cs loader("...") keys == .bytes file stems
-        private static readonly string[] TableFiles =
+        /// <summary>
+        /// 이 패키지가 싣고 오는 테이블 파일 stem 목록. 생성물(<c>Tables.cs</c>의 loader 키 = 실제 <c>.bytes</c>)과
+        /// 반드시 일치해야 하며, 새 Luban 테이블 추가 시 여기도 갱신해야 한다.
+        /// 어긋나면 <see cref="LoadAsync"/>가 Entrance 단계에서 KeyNotFoundException으로 죽는다 — EditMode 테스트가 지킨다.
+        /// </summary>
+        public static readonly System.Collections.Generic.IReadOnlyList<string> TableFiles = new[]
         {
             "tbcharacter", "tbskin", "tbskinasset", "tbitem", "tbstatuseffect", "tbability",
             "tbcharacterloadout"
@@ -27,7 +31,7 @@ namespace LOP.MasterData
 
         public async Task LoadAsync()
         {
-            var blobs = new Dictionary<string, byte[]>(TableFiles.Length);
+            var blobs = new Dictionary<string, byte[]>(TableFiles.Count);
             foreach (var name in TableFiles)
             {
                 blobs[name] = await LoadBytes($"MasterData/{name}.bytes");
