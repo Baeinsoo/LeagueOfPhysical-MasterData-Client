@@ -24,7 +24,8 @@ namespace LOP.MasterData
         public static readonly System.Collections.Generic.IReadOnlyList<string> TableFiles = new[]
         {
             "tbcharacter", "tbskin", "tbskinasset", "tbitem", "tbstatuseffect", "tbability",
-            "tbcharacterloadout", "tbabilityview", "tbstatuseffectview"
+            "tbcharacterloadout", "tbabilityview", "tbstatuseffectview",
+            "tbgamemode", "tbmap", "tbqueue"
         };
 
         public Tables Tables { get; private set; }
