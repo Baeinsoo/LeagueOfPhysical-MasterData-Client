@@ -1,8 +1,6 @@
 
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using Luban;
 using NUnit.Framework;
 
 namespace LOP.MasterData.Tests
@@ -13,30 +11,16 @@ namespace LOP.MasterData.Tests
     /// </summary>
     public class MatchmakingDataIntegrityTests
     {
-        private const string StreamingAssetsRelative =
-            "Packages/com.baegames.lop.masterdata.client/Runtime.Generated/StreamingAssets/MasterData";
-
         // 선택 주체는 Luban enum이 아니라 string 컬럼이다(target_type 선례).
-        // 어셈블리 경계 때문에 여기서 값을 못 박아 둔다 — 정책 값이 늘면 함께 갱신할 것.
+        // 어셈블리 경계 때문에 여기서 값을 못 박아 둔다 — LeagueOfPhysical-Client 레포의
+        // docs/superpowers/specs/2026-07-27-matchmaking-standardization-design.md §4(큐 정책 컬럼과
+        // Player/Server 값 정의)와 반드시 일치해야 한다. 그쪽 정책 값이 늘면 여기도 함께 갱신할 것.
         private static readonly HashSet<string> ValidSelectors = new() { "Player", "Server" };
-
-        private static Tables LoadTables()
-        {
-            string dir = Path.GetFullPath(StreamingAssetsRelative);
-            Assert.IsTrue(Directory.Exists(dir), "StreamingAssets 폴더를 찾지 못했다: " + dir);
-
-            return new Tables(name =>
-            {
-                string path = Path.Combine(dir, name + ".bytes");
-                Assert.IsTrue(File.Exists(path), "테이블 파일을 찾지 못했다: " + path);
-                return new ByteBuf(File.ReadAllBytes(path));
-            });
-        }
 
         [Test]
         public void Queue_AllowedGameModeIds_ReferenceExistingGameModes()
         {
-            var tables = LoadTables();
+            var tables = MasterDataTestTableLoader.LoadTables();
             var gameModeIds = tables.TbGameMode.DataList.Select(x => x.Id).ToHashSet();
 
             foreach (var queue in tables.TbQueue.DataList)
@@ -55,7 +39,7 @@ namespace LOP.MasterData.Tests
         [Test]
         public void Map_GameModeId_ReferencesExistingGameMode()
         {
-            var tables = LoadTables();
+            var tables = MasterDataTestTableLoader.LoadTables();
             var gameModeIds = tables.TbGameMode.DataList.Select(x => x.Id).ToHashSet();
 
             foreach (var map in tables.TbMap.DataList)
@@ -68,7 +52,7 @@ namespace LOP.MasterData.Tests
         [Test]
         public void Queue_SelectorValues_AreValid()
         {
-            var tables = LoadTables();
+            var tables = MasterDataTestTableLoader.LoadTables();
 
             foreach (var queue in tables.TbQueue.DataList)
             {
@@ -82,7 +66,7 @@ namespace LOP.MasterData.Tests
         [Test]
         public void GameMode_PlayerCounts_AreSane()
         {
-            var tables = LoadTables();
+            var tables = MasterDataTestTableLoader.LoadTables();
 
             foreach (var gameMode in tables.TbGameMode.DataList)
             {
