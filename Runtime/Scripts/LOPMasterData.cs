@@ -47,8 +47,9 @@ namespace LOP.MasterData
             // In the editor, a package's StreamingAssets are NOT merged into
             // Application.streamingAssetsPath (that points at the project's Assets/StreamingAssets).
             // Resolve this package's own StreamingAssets via the virtual Packages/ path.
-            // (In a player build, Unity copies package StreamingAssets into the build's
-            //  StreamingAssets, so the streamingAssetsPath branches below are correct there.)
+            // (In a player build, Unity does NOT copy package StreamingAssets either — the files get
+            //  there because MasterDataPlayerBuildProcessor adds this folder to the build's
+            //  StreamingAssets. Keep that processor and this path in sync; a test asserts they match.)
             uri = "file://" + Path.GetFullPath(
                 $"Packages/com.baegames.lop.masterdata.client/Runtime.Generated/StreamingAssets/{relativePath}");
 #elif UNITY_ANDROID
