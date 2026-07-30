@@ -4,6 +4,7 @@
     "references": [
         "baegames.LOP.MasterData.Client.Runtime",
         "baegames.LOP.MasterData.Client.Generated",
+        "baegames.LOP.MasterData.Client.Editor",
         "baegames.GameFramework.Runtime",
         "Luban.Runtime"
     ],
