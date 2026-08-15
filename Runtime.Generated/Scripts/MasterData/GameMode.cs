@@ -22,6 +22,7 @@ public sealed partial class GameMode : Luban.BeanBase
         Description = _buf.ReadString();
         MinPlayers = _buf.ReadInt();
         MaxPlayers = _buf.ReadInt();
+        ScenePath = _buf.ReadString();
     }
 
     public static GameMode DeserializeGameMode(ByteBuf _buf)
@@ -53,6 +54,10 @@ public sealed partial class GameMode : Luban.BeanBase
     /// max_players
     /// </summary>
     public readonly int MaxPlayers;
+    /// <summary>
+    /// scene_path
+    /// </summary>
+    public readonly string ScenePath;
    
     public const int __ID__ = -1704717099;
     public override int GetTypeId() => __ID__;
@@ -70,6 +75,7 @@ public sealed partial class GameMode : Luban.BeanBase
         + "description:" + Description + ","
         + "minPlayers:" + MinPlayers + ","
         + "maxPlayers:" + MaxPlayers + ","
+        + "scenePath:" + ScenePath + ","
         + "}";
     }
 }
