@@ -25,7 +25,7 @@ namespace LOP.MasterData
         {
             "tbcharacter", "tbskin", "tbskinasset", "tbitem", "tbstatuseffect", "tbability",
             "tbcharacterloadout", "tbabilityview", "tbstatuseffectview",
-            "tbgamemode", "tbmap", "tbqueue"
+            "tbgamemode", "tbmap", "tbqueue", "tbflappyconfig"
         };
 
         public Tables Tables { get; private set; }
