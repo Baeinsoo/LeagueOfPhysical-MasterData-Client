@@ -65,6 +65,14 @@ public partial class Tables
     /// FlappyConfig(Flappy Race 튜닝, 클&#183;서 공용)
     /// </summary>
     public TbFlappyConfig TbFlappyConfig {get; }
+    /// <summary>
+    /// PanchigiConfig(판치기 튜닝)
+    /// </summary>
+    public TbPanchigiConfig TbPanchigiConfig {get; }
+    /// <summary>
+    /// PanchigiSetup(인원별 판 구성)
+    /// </summary>
+    public TbPanchigiSetup TbPanchigiSetup {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -81,6 +89,8 @@ public partial class Tables
         TbMap = new TbMap(loader("tbmap"));
         TbQueue = new TbQueue(loader("tbqueue"));
         TbFlappyConfig = new TbFlappyConfig(loader("tbflappyconfig"));
+        TbPanchigiConfig = new TbPanchigiConfig(loader("tbpanchigiconfig"));
+        TbPanchigiSetup = new TbPanchigiSetup(loader("tbpanchigisetup"));
         ResolveRef();
     }
     
@@ -99,6 +109,8 @@ public partial class Tables
         TbMap.ResolveRef(this);
         TbQueue.ResolveRef(this);
         TbFlappyConfig.ResolveRef(this);
+        TbPanchigiConfig.ResolveRef(this);
+        TbPanchigiSetup.ResolveRef(this);
     }
 }
 
