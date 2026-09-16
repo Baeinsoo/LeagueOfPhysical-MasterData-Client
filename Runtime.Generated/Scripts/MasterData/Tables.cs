@@ -85,6 +85,10 @@ public partial class Tables
     /// ArcheryTargetKind(과녁 종류)
     /// </summary>
     public TbArcheryTarget TbArcheryTarget {get; }
+    /// <summary>
+    /// ArcheryRing(과녁 동심원 띠)
+    /// </summary>
+    public TbArcheryRing TbArcheryRing {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -106,6 +110,7 @@ public partial class Tables
         TbSkydiveConfig = new TbSkydiveConfig(loader("tbskydiveconfig"));
         TbArcheryConfig = new TbArcheryConfig(loader("tbarcheryconfig"));
         TbArcheryTarget = new TbArcheryTarget(loader("tbarcherytarget"));
+        TbArcheryRing = new TbArcheryRing(loader("tbarcheryring"));
         ResolveRef();
     }
     
@@ -129,6 +134,7 @@ public partial class Tables
         TbSkydiveConfig.ResolveRef(this);
         TbArcheryConfig.ResolveRef(this);
         TbArcheryTarget.ResolveRef(this);
+        TbArcheryRing.ResolveRef(this);
     }
 }
 
