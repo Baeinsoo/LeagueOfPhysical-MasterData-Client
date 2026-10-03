@@ -23,6 +23,7 @@ public sealed partial class DodgeStage : Luban.BeanBase
         BaseIntensity = _buf.ReadFloat();
         Tighten = _buf.ReadFloat();
         IntervalSeconds = _buf.ReadFloat();
+        Caption = _buf.ReadString();
     }
 
     public static DodgeStage DeserializeDodgeStage(ByteBuf _buf)
@@ -58,6 +59,10 @@ public sealed partial class DodgeStage : Luban.BeanBase
     /// interval_seconds
     /// </summary>
     public readonly float IntervalSeconds;
+    /// <summary>
+    /// caption
+    /// </summary>
+    public readonly string Caption;
    
     public const int __ID__ = -1159277177;
     public override int GetTypeId() => __ID__;
@@ -76,6 +81,7 @@ public sealed partial class DodgeStage : Luban.BeanBase
         + "baseIntensity:" + BaseIntensity + ","
         + "tighten:" + Tighten + ","
         + "intervalSeconds:" + IntervalSeconds + ","
+        + "caption:" + Caption + ","
         + "}";
     }
 }
