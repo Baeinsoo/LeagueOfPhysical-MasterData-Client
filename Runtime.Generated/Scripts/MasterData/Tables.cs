@@ -101,6 +101,10 @@ public partial class Tables
     /// DodgeStage(피하기 스테이지 순서&#183;길이&#183;종류&#183;세기, 클서 공용)
     /// </summary>
     public TbDodgeStage TbDodgeStage {get; }
+    /// <summary>
+    /// RankDivision(랭크 단계&#183;숨은 점수 하한&#183;감소)
+    /// </summary>
+    public TbRankDivision TbRankDivision {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -126,6 +130,7 @@ public partial class Tables
         TbArcheryRange = new TbArcheryRange(loader("tbarcheryrange"));
         TbDodgeConfig = new TbDodgeConfig(loader("tbdodgeconfig"));
         TbDodgeStage = new TbDodgeStage(loader("tbdodgestage"));
+        TbRankDivision = new TbRankDivision(loader("tbrankdivision"));
         ResolveRef();
     }
     
@@ -153,6 +158,7 @@ public partial class Tables
         TbArcheryRange.ResolveRef(this);
         TbDodgeConfig.ResolveRef(this);
         TbDodgeStage.ResolveRef(this);
+        TbRankDivision.ResolveRef(this);
     }
 }
 
