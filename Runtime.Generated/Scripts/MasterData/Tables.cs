@@ -105,6 +105,18 @@ public partial class Tables
     /// RankDivision(랭크 단계&#183;숨은 점수 하한&#183;감소)
     /// </summary>
     public TbRankDivision TbRankDivision {get; }
+    /// <summary>
+    /// 재화 종류
+    /// </summary>
+    public TbCurrency TbCurrency {get; }
+    /// <summary>
+    /// 꾸밈 슬롯
+    /// </summary>
+    public TbCosmeticSlot TbCosmeticSlot {get; }
+    /// <summary>
+    /// 꾸밈 품목
+    /// </summary>
+    public TbCosmetic TbCosmetic {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -131,6 +143,9 @@ public partial class Tables
         TbDodgeConfig = new TbDodgeConfig(loader("tbdodgeconfig"));
         TbDodgeStage = new TbDodgeStage(loader("tbdodgestage"));
         TbRankDivision = new TbRankDivision(loader("tbrankdivision"));
+        TbCurrency = new TbCurrency(loader("tbcurrency"));
+        TbCosmeticSlot = new TbCosmeticSlot(loader("tbcosmeticslot"));
+        TbCosmetic = new TbCosmetic(loader("tbcosmetic"));
         ResolveRef();
     }
     
@@ -159,6 +174,9 @@ public partial class Tables
         TbDodgeConfig.ResolveRef(this);
         TbDodgeStage.ResolveRef(this);
         TbRankDivision.ResolveRef(this);
+        TbCurrency.ResolveRef(this);
+        TbCosmeticSlot.ResolveRef(this);
+        TbCosmetic.ResolveRef(this);
     }
 }
 
