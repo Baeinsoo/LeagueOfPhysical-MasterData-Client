@@ -28,7 +28,7 @@ namespace LOP.MasterData
             "tbgamemode", "tbmap", "tbqueue", "tbflappyconfig",
             "tbpanchigiconfig", "tbpanchigisetup", "tbskydiveconfig",
             "tbarcheryconfig", "tbarcherytarget", "tbarcheryring", "tbarcheryrange", "tbdodgeconfig", "tbdodgestage",
-            "tbrankdivision"
+            "tbrankdivision", "tbcurrency", "tbcosmeticslot", "tbcosmetic"
         };
 
         public Tables Tables { get; private set; }
