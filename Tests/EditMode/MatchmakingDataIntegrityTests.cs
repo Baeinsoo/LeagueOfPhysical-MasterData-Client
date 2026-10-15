@@ -76,5 +76,16 @@ namespace LOP.MasterData.Tests
                     $"게임 {gameMode.Code}의 최대 인원이 최소보다 작다.");
             }
         }
+
+        [Test]
+        public void 활쏘기에는_맵이_둘이고_같은_씬이다()
+        {
+            var tables = MasterDataTestTableLoader.LoadTables();
+            var maps = new List<GameMap>();
+            foreach (var m in tables.TbMap.DataList) { if (m.GameModeId == 5) { maps.Add(m); } }
+            Assert.AreEqual(2, maps.Count);
+            Assert.AreEqual(maps[0].ScenePath, maps[1].ScenePath);
+            Assert.IsTrue(maps.Exists(m => m.Code == "archery_catapult" && m.Name == "투석기 사냥"));
+        }
     }
 }
