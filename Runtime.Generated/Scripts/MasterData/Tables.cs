@@ -117,6 +117,10 @@ public partial class Tables
     /// 꾸밈 품목
     /// </summary>
     public TbCosmetic TbCosmetic {get; }
+    /// <summary>
+    /// 외형 색표(피부&#183;머리)
+    /// </summary>
+    public TbAppearanceColor TbAppearanceColor {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -146,6 +150,7 @@ public partial class Tables
         TbCurrency = new TbCurrency(loader("tbcurrency"));
         TbCosmeticSlot = new TbCosmeticSlot(loader("tbcosmeticslot"));
         TbCosmetic = new TbCosmetic(loader("tbcosmetic"));
+        TbAppearanceColor = new TbAppearanceColor(loader("tbappearancecolor"));
         ResolveRef();
     }
     
@@ -177,6 +182,7 @@ public partial class Tables
         TbCurrency.ResolveRef(this);
         TbCosmeticSlot.ResolveRef(this);
         TbCosmetic.ResolveRef(this);
+        TbAppearanceColor.ResolveRef(this);
     }
 }
 
