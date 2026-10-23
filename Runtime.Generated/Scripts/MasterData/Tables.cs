@@ -121,6 +121,10 @@ public partial class Tables
     /// 외형 색표(피부&#183;머리)
     /// </summary>
     public TbAppearanceColor TbAppearanceColor {get; }
+    /// <summary>
+    /// MountedArcheryConfig(말 위 활쏘기 탈것&#183;화살 튜닝, 클서 공용)
+    /// </summary>
+    public TbMountedArcheryConfig TbMountedArcheryConfig {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -151,6 +155,7 @@ public partial class Tables
         TbCosmeticSlot = new TbCosmeticSlot(loader("tbcosmeticslot"));
         TbCosmetic = new TbCosmetic(loader("tbcosmetic"));
         TbAppearanceColor = new TbAppearanceColor(loader("tbappearancecolor"));
+        TbMountedArcheryConfig = new TbMountedArcheryConfig(loader("tbmountedarcheryconfig"));
         ResolveRef();
     }
     
@@ -183,6 +188,7 @@ public partial class Tables
         TbCosmeticSlot.ResolveRef(this);
         TbCosmetic.ResolveRef(this);
         TbAppearanceColor.ResolveRef(this);
+        TbMountedArcheryConfig.ResolveRef(this);
     }
 }
 
