@@ -27,7 +27,7 @@ namespace LOP.MasterData
             "tbcharacterloadout", "tbabilityview", "tbstatuseffectview",
             "tbgamemode", "tbmap", "tbqueue", "tbflappyconfig",
             "tbpanchigiconfig", "tbpanchigisetup", "tbskydiveconfig",
-            "tbarcheryconfig", "tbarcherytarget", "tbarcheryring", "tbarcheryrange", "tbdodgeconfig", "tbdodgestage", "tbmountedarcheryconfig", "tbmountedarcheryzone", "tbknockbackconfig", "tbknockbackzone",
+            "tbarcheryconfig", "tbarcherytarget", "tbarcheryring", "tbarcheryrange", "tbdodgeconfig", "tbdodgestage", "tbmountedarcheryconfig", "tbmountedarcheryzone", "tbknockbackconfig", "tbknockbackzone", "tbknockbackmode",
             "tbrankdivision", "tbcurrency", "tbcosmeticslot", "tbcosmetic", "tbappearancecolor"
         };
 
